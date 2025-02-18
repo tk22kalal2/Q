@@ -12,13 +12,19 @@
   <h1>Today's Token</h1>
   <p id="token"></p>
 
-  <script>
+ <script>
     async function loadToken() {
-      const response = await fetch('Plugins/daily_token.json');
-      const data = await response.json();
-      document.getElementById('token').textContent = data.token;
+      try {
+        const response = await fetch('./daily_token.json'); // Correct path
+        const data = await response.json();
+        document.getElementById('token').textContent = data.token;
+      } catch (error) {
+        document.getElementById('token').textContent = 'Error loading token!';
+        console.error('Error loading token:', error);
+      }
     }
     loadToken();
-  </script>
+</script>
+ 
 </body>
 </html>
