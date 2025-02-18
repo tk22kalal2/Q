@@ -1,3 +1,4 @@
+<!-- FILE: Plugins/token_input.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +18,19 @@
 
   <script>
     async function validateToken() {
-      const response = await fetch('Plugins/daily_token.json');
-      const data = await response.json();
-      const inputToken = document.getElementById('tokenInput').value;
+      try {
+        const response = await fetch('./daily_token.json?nocache=' + new Date().getTime());
+        const data = await response.json();
+        const inputToken = document.getElementById('tokenInput').value;
 
-      if (inputToken === data.token) {
-        window.location.href = 'content.html';
-      } else {
-        document.getElementById('message').textContent = 'Invalid token, please try again.';
+        if (inputToken === data.token) {
+          document.getElementById('message').textContent = 'Correct token!';
+        } else {
+          document.getElementById('message').textContent = 'Wrong token, please try again.';
+        }
+      } catch (error) {
+        document.getElementById('message').textContent = 'Error loading token!';
+        console.error('Error:', error);
       }
     }
   </script>
