@@ -1,59 +1,197 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Screenshot Processor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Splitter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        #previewContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .cropped-section {
+            background: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cropped-section img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+
+        #logs {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Process Long Screenshot</h1>
-    
-    <input type="file" id="imageInput" accept="image/*">
-    <button onclick="processImage()">Process Image</button>
-    
-    <div id="logs"></div>
-    
-    <div id="results" style="display: none;">
-        <h3>Part 1 (Above Options)</h3>
-        <img id="part1">
-        <h3>Part 2 (Options)</h3>
-        <img id="part2">
-        <h3>Part 3 (Below Options)</h3>
-        <img id="part3">
+    <div class="container">
+        <div class="upload-section">
+            <h2>Upload Screenshot</h2>
+            <input type="file" id="imageInput" accept="image/*">
+            <button onclick="processImage()">Start Processing</button>
+        </div>
+
+        <div id="previewContainer">
+            <div class="cropped-section">
+                <h3>Above Options</h3>
+                <img id="abovePreview">
+            </div>
+            <div class="cropped-section">
+                <h3>Options Section</h3>
+                <img id="optionsPreview">
+            </div>
+            <div class="cropped-section">
+                <h3>Below Options</h3>
+                <img id="belowPreview">
+            </div>
+        </div>
+
+        <div id="logs"></div>
     </div>
 
+    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
     <script>
-    async function processImage() {
-        const input = document.getElementById('imageInput');
-        const logsDiv = document.getElementById('logs');
-        logsDiv.innerHTML = 'Starting processing...<br>';
+        let worker;
+        let uploadedImage;
 
-        if (!input.files[0]) {
-            logsDiv.innerHTML += 'No file selected!<br>';
-            return;
+        async function initializeTesseract() {
+            worker = await Tesseract.createWorker();
+            await worker.loadLanguage('eng');
+            await worker.initialize('eng');
         }
 
-        const formData = new FormData();
-        formData.append('image', input.files[0]);
+        function addLog(message) {
+            const logs = document.getElementById('logs');
+            logs.innerHTML += `> ${message}\n`;
+            logs.scrollTop = logs.scrollHeight;
+        }
 
-        try {
-            const response = await fetch('/process', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            logsDiv.innerHTML += result.logs.replace(/\n/g, '<br>');
-            
-            if (result.success) {
-                document.getElementById('results').style.display = 'block';
-                document.getElementById('part1').src = 'data:image/png;base64,' + result.part1;
-                document.getElementById('part2').src = 'data:image/png;base64,' + result.part2;
-                document.getElementById('part3').src = 'data:image/png;base64,' + result.part3;
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    uploadedImage = new Image();
+                    uploadedImage.src = event.target.result;
+                    addLog('Image loaded successfully');
+                };
+                reader.readAsDataURL(file);
             }
-        } catch (error) {
-            logsDiv.innerHTML += 'Error: ' + error.message + '<br>';
+        });
+
+        async function processImage() {
+            if (!uploadedImage) {
+                alert('Please upload an image first');
+                return;
+            }
+
+            addLog('Starting processing...');
+            document.getElementById('previewContainer').style.display = 'block';
+
+            // Create canvas to work with the image
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            uploadedImage.onload = async () => {
+                canvas.width = uploadedImage.width;
+                canvas.height = uploadedImage.height;
+                ctx.drawImage(uploadedImage, 0, 0);
+
+                // Use Tesseract to find option positions
+                await initializeTesseract();
+                const { data: { lines } } = await worker.recognize(canvas);
+                
+                let optionStart, optionEnd;
+                for (let line of lines) {
+                    if (line.text.match(/^[A-D]\. /)) {
+                        if (!optionStart) optionStart = line.bbox.y0;
+                        optionEnd = line.bbox.y1;
+                    }
+                }
+
+                if (!optionStart) {
+                    addLog('Error: Could not find options in the image');
+                    return;
+                }
+
+                addLog(`Found options between Y positions ${optionStart} and ${optionEnd}`);
+
+                // Crop sections
+                const aboveCanvas = document.createElement('canvas');
+                aboveCanvas.width = uploadedImage.width;
+                aboveCanvas.height = optionStart;
+                aboveCanvas.getContext('2d').drawImage(canvas, 
+                    0, 0, uploadedImage.width, optionStart,
+                    0, 0, uploadedImage.width, optionStart);
+
+                const optionsCanvas = document.createElement('canvas');
+                optionsCanvas.width = uploadedImage.width;
+                optionsCanvas.height = optionEnd - optionStart;
+                optionsCanvas.getContext('2d').drawImage(canvas,
+                    0, optionStart, uploadedImage.width, optionEnd - optionStart,
+                    0, 0, uploadedImage.width, optionEnd - optionStart);
+
+                const belowCanvas = document.createElement('canvas');
+                belowCanvas.width = uploadedImage.width;
+                belowCanvas.height = canvas.height - optionEnd;
+                belowCanvas.getContext('2d').drawImage(canvas,
+                    0, optionEnd, uploadedImage.width, canvas.height - optionEnd,
+                    0, 0, uploadedImage.width, canvas.height - optionEnd);
+
+                // Display results
+                document.getElementById('abovePreview').src = aboveCanvas.toDataURL();
+                document.getElementById('optionsPreview').src = optionsCanvas.toDataURL();
+                document.getElementById('belowPreview').src = belowCanvas.toDataURL();
+
+                addLog('Processing completed successfully');
+                await worker.terminate();
+            };
         }
-    }
     </script>
 </body>
 </html>
