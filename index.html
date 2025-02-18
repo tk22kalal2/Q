@@ -44,6 +44,7 @@
                 worker = await Tesseract.createWorker();
                 await worker.loadLanguage('eng');
                 await worker.initialize('eng');
+                addLog('Tesseract initialized successfully');
             }
         }
 
@@ -59,8 +60,8 @@
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     uploadedImage = new Image();
-                    uploadedImage.onload = () => addLog('Image loaded successfully');
                     uploadedImage.src = event.target.result;
+                    uploadedImage.onload = () => addLog('Image loaded successfully');
                 };
                 reader.readAsDataURL(file);
             }
@@ -76,40 +77,39 @@
             document.getElementById('previewContainer').style.display = 'block';
 
             try {
+                // Initialize Tesseract
                 await initializeTesseract();
+
+                // Create canvas and draw the image
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
-                
-                // Wait for image to load
-                await new Promise((resolve) => {
-                    if (uploadedImage.complete) resolve();
-                    else uploadedImage.onload = resolve;
-                });
-
                 canvas.width = uploadedImage.width;
                 canvas.height = uploadedImage.height;
                 ctx.drawImage(uploadedImage, 0, 0);
 
-                // OCR processing
+                // Perform OCR
                 addLog('Analyzing text...');
                 const { data: { lines } } = await worker.recognize(canvas);
-                
+                addLog(`Found ${lines.length} lines of text`);
+
+                // Find the positions of the options
                 let optionStart, optionEnd;
                 for (let line of lines) {
                     if (line.text.match(/^[A-D]\.\s/)) {
-                        if (typeof optionStart === 'undefined') optionStart = line.bbox.y0;
+                        if (typeof optionStart === 'undefined') {
+                            optionStart = line.bbox.y0;
+                            addLog(`Found start of options at Y = ${optionStart}`);
+                        }
                         optionEnd = line.bbox.y1;
                     }
                 }
 
+                // Validate if options were found
                 if (typeof optionStart === 'undefined') {
-                    addLog('Error: Could not find options in the image');
-                    return;
+                    throw new Error('Could not find options in the image. Ensure the options follow the format "A. ", "B. ", etc.');
                 }
 
-                addLog(`Found options between Y positions ${optionStart}-${optionEnd}`);
-
-                // Create cropped sections
+                // Crop the image into three parts
                 const createCroppedImage = (startY, height) => {
                     const croppedCanvas = document.createElement('canvas');
                     croppedCanvas.width = canvas.width;
@@ -120,6 +120,7 @@
                     return croppedCanvas.toDataURL();
                 };
 
+                // Display the cropped images
                 document.getElementById('abovePreview').src = createCroppedImage(0, optionStart);
                 document.getElementById('optionsPreview').src = createCroppedImage(optionStart, optionEnd - optionStart);
                 document.getElementById('belowPreview').src = createCroppedImage(optionEnd, canvas.height - optionEnd);
@@ -127,6 +128,7 @@
                 addLog('Processing completed successfully');
             } catch (error) {
                 addLog(`Error: ${error.message}`);
+                console.error(error); // Log the full error to the console for debugging
             }
         }
     </script>
