@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today's Token</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+  </style>
+</head>
+<body>
+  <h1>Today's Token</h1>
+  <p id="token"></p>
+
+  <script>
+    async function loadToken() {
+      const response = await fetch('Plugins/daily_token.json');
+      const data = await response.json();
+      document.getElementById('token').textContent = data.token;
+    }
+    loadToken();
+  </script>
+</body>
+</html>
