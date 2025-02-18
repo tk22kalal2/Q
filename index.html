@@ -5,67 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Screenshot Splitter</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .upload-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        #previewContainer {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .cropped-section {
-            background: white;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .cropped-section img {
-            max-width: 100%;
-            border: 1px solid #ddd;
-            margin: 5px 0;
-        }
-
-        #logs {
-            background: #333;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-family: monospace;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        button {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #45a049;
-        }
+        /* ... (keep same CSS styles as before) ... */
     </style>
 </head>
 <body>
@@ -100,9 +40,11 @@
         let uploadedImage;
 
         async function initializeTesseract() {
-            worker = await Tesseract.createWorker();
-            await worker.loadLanguage('eng');
-            await worker.initialize('eng');
+            if (!worker) {
+                worker = await Tesseract.createWorker();
+                await worker.loadLanguage('eng');
+                await worker.initialize('eng');
+            }
         }
 
         function addLog(message) {
@@ -117,8 +59,8 @@
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     uploadedImage = new Image();
+                    uploadedImage.onload = () => addLog('Image loaded successfully');
                     uploadedImage.src = event.target.result;
-                    addLog('Image loaded successfully');
                 };
                 reader.readAsDataURL(file);
             }
@@ -133,64 +75,59 @@
             addLog('Starting processing...');
             document.getElementById('previewContainer').style.display = 'block';
 
-            // Create canvas to work with the image
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            uploadedImage.onload = async () => {
+            try {
+                await initializeTesseract();
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Wait for image to load
+                await new Promise((resolve) => {
+                    if (uploadedImage.complete) resolve();
+                    else uploadedImage.onload = resolve;
+                });
+
                 canvas.width = uploadedImage.width;
                 canvas.height = uploadedImage.height;
                 ctx.drawImage(uploadedImage, 0, 0);
 
-                // Use Tesseract to find option positions
-                await initializeTesseract();
+                // OCR processing
+                addLog('Analyzing text...');
                 const { data: { lines } } = await worker.recognize(canvas);
                 
                 let optionStart, optionEnd;
                 for (let line of lines) {
-                    if (line.text.match(/^[A-D]\. /)) {
-                        if (!optionStart) optionStart = line.bbox.y0;
+                    if (line.text.match(/^[A-D]\.\s/)) {
+                        if (typeof optionStart === 'undefined') optionStart = line.bbox.y0;
                         optionEnd = line.bbox.y1;
                     }
                 }
 
-                if (!optionStart) {
+                if (typeof optionStart === 'undefined') {
                     addLog('Error: Could not find options in the image');
                     return;
                 }
 
-                addLog(`Found options between Y positions ${optionStart} and ${optionEnd}`);
+                addLog(`Found options between Y positions ${optionStart}-${optionEnd}`);
 
-                // Crop sections
-                const aboveCanvas = document.createElement('canvas');
-                aboveCanvas.width = uploadedImage.width;
-                aboveCanvas.height = optionStart;
-                aboveCanvas.getContext('2d').drawImage(canvas, 
-                    0, 0, uploadedImage.width, optionStart,
-                    0, 0, uploadedImage.width, optionStart);
+                // Create cropped sections
+                const createCroppedImage = (startY, height) => {
+                    const croppedCanvas = document.createElement('canvas');
+                    croppedCanvas.width = canvas.width;
+                    croppedCanvas.height = height;
+                    croppedCanvas.getContext('2d').drawImage(
+                        canvas, 0, startY, canvas.width, height, 0, 0, canvas.width, height
+                    );
+                    return croppedCanvas.toDataURL();
+                };
 
-                const optionsCanvas = document.createElement('canvas');
-                optionsCanvas.width = uploadedImage.width;
-                optionsCanvas.height = optionEnd - optionStart;
-                optionsCanvas.getContext('2d').drawImage(canvas,
-                    0, optionStart, uploadedImage.width, optionEnd - optionStart,
-                    0, 0, uploadedImage.width, optionEnd - optionStart);
-
-                const belowCanvas = document.createElement('canvas');
-                belowCanvas.width = uploadedImage.width;
-                belowCanvas.height = canvas.height - optionEnd;
-                belowCanvas.getContext('2d').drawImage(canvas,
-                    0, optionEnd, uploadedImage.width, canvas.height - optionEnd,
-                    0, 0, uploadedImage.width, canvas.height - optionEnd);
-
-                // Display results
-                document.getElementById('abovePreview').src = aboveCanvas.toDataURL();
-                document.getElementById('optionsPreview').src = optionsCanvas.toDataURL();
-                document.getElementById('belowPreview').src = belowCanvas.toDataURL();
+                document.getElementById('abovePreview').src = createCroppedImage(0, optionStart);
+                document.getElementById('optionsPreview').src = createCroppedImage(optionStart, optionEnd - optionStart);
+                document.getElementById('belowPreview').src = createCroppedImage(optionEnd, canvas.height - optionEnd);
 
                 addLog('Processing completed successfully');
-                await worker.terminate();
-            };
+            } catch (error) {
+                addLog(`Error: ${error.message}`);
+            }
         }
     </script>
 </body>
