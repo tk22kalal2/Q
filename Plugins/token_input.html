@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Token Access</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input, button { margin: 10px; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Enter Today's Token</h1>
+  <input type="text" id="tokenInput" placeholder="Enter token" />
+  <button onclick="validateToken()">Submit</button>
+  <p id="message"></p>
+
+  <script>
+    async function validateToken() {
+      const response = await fetch('Plugins/daily_token.json');
+      const data = await response.json();
+      const inputToken = document.getElementById('tokenInput').value;
+
+      if (inputToken === data.token) {
+        window.location.href = 'content.html';
+      } else {
+        document.getElementById('message').textContent = 'Invalid token, please try again.';
+      }
+    }
+  </script>
+</body>
+</html>
