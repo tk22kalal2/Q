@@ -1,0 +1,59 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screenshot Processor</title>
+</head>
+<body>
+    <h1>Process Long Screenshot</h1>
+    
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="processImage()">Process Image</button>
+    
+    <div id="logs"></div>
+    
+    <div id="results" style="display: none;">
+        <h3>Part 1 (Above Options)</h3>
+        <img id="part1">
+        <h3>Part 2 (Options)</h3>
+        <img id="part2">
+        <h3>Part 3 (Below Options)</h3>
+        <img id="part3">
+    </div>
+
+    <script>
+    async function processImage() {
+        const input = document.getElementById('imageInput');
+        const logsDiv = document.getElementById('logs');
+        logsDiv.innerHTML = 'Starting processing...<br>';
+
+        if (!input.files[0]) {
+            logsDiv.innerHTML += 'No file selected!<br>';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', input.files[0]);
+
+        try {
+            const response = await fetch('/process', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            logsDiv.innerHTML += result.logs.replace(/\n/g, '<br>');
+            
+            if (result.success) {
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('part1').src = 'data:image/png;base64,' + result.part1;
+                document.getElementById('part2').src = 'data:image/png;base64,' + result.part2;
+                document.getElementById('part3').src = 'data:image/png;base64,' + result.part3;
+            }
+        } catch (error) {
+            logsDiv.innerHTML += 'Error: ' + error.message + '<br>';
+        }
+    }
+    </script>
+</body>
+</html>
