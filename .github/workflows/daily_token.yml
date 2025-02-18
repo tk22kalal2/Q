@@ -17,9 +17,6 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Run token generator
         run: node Plugins/daily_token_generator.js
 
