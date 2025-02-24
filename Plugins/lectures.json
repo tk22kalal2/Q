@@ -15,6 +15,34 @@
     {
       "id": 4,
       "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1513/11_watermarked.mp4?hash=AgADST')\">Surgery Recent updates - Oncology</a></td></tr>"
+    },
+    {
+      "id": 5,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1514/12_watermarked.mp4?hash=AgADSZ')\">Surgery Recent updates - Burns</a></td></tr>"
+    },
+    {
+      "id": 6,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1515/13_watermarked.mp4?hash=AgADSa')\">Surgery Recent updates - Shock</a></td></tr>"
+    },
+    {
+      "id": 7,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1516/12_watermarked.mp4?hash=AgADSZ')\">Surgery Recent updates - Burns 2</a></td></tr>"
+    },
+    {
+      "id": 8,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1517/13_watermarked.mp4?hash=AgADSa')\">Surgery Recent updates - Shock 2</a></td></tr>"
+    },
+    {
+      "id": 9,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1516/12_watermarked.mp4?hash=AgADSZ')\">Surgery Recent updates - Burns 3</a></td></tr>"
+    },
+    {
+      "id": 10,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1517/13_watermarked.mp4?hash=AgADSa')\">Surgery Recent updates - Shock 3</a></td></tr>"
+    },
+    {
+      "id": 11,
+      "html": "<tr><td><a href='#' onclick=\"loadIframe('https://stream.nextpulse.workers.dev/watch/1517/13_watermarked.mp4?hash=AgADSa')\">Surgery Recent updates - Shock 4</a></td></tr>"
     }
   ]
 }
