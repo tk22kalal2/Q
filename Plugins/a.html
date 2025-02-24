@@ -40,6 +40,51 @@
   </style>
 </head>
 <body>
+   <div id="token-popup">
+    <div id="token-box">
+      <h2>Enter Token to Access</h2>
+      <input type="text" id="tokenInput" placeholder="Enter token" />
+      <button onclick="validateToken()">Submit</button>
+      <p id="tokenMessage"></p>
+    </div>
+  </div>
+
+<script>
+    async function checkToken() {
+        try {
+            const response = await fetch('../Plugins/daily_token.json?nocache=' + new Date().getTime());
+            const data = await response.json();
+            const savedToken = localStorage.getItem('dailyToken');
+            const savedDate = localStorage.getItem('tokenDate');
+
+            if (savedToken === data.token && savedDate === data.date) {
+                document.getElementById('token-popup').style.display = 'none'; // Hide popup if token is still valid
+            }
+        } catch (error) {
+            console.error('Error loading token:', error);
+        }
+    }
+
+    async function validateToken() {
+        try {
+            const response = await fetch('../Plugins/daily_token.json?nocache=' + new Date().getTime());
+            const data = await response.json();
+            const inputToken = document.getElementById('tokenInput').value;
+
+            if (inputToken === data.token) {
+                localStorage.setItem('dailyToken', inputToken); // Save token in localStorage
+                localStorage.setItem('tokenDate', data.date); // Save date to expire at 12 AM
+                document.getElementById('token-popup').style.display = 'none'; // Hide popup
+            } else {
+                document.getElementById('tokenMessage').textContent = 'Invalid token. Please try again.';
+            }
+        } catch (error) {
+            document.getElementById('tokenMessage').textContent = 'Error loading token!';
+        }
+    }
+
+    checkToken(); // Check token on page load
+</script>
   <div class="navbar">
     <a href="../index.html" class="back-link">
       <i class="fa-solid fa-angle-left"></i> Back
