@@ -78,8 +78,7 @@
     checkToken(); // Check token on page load
 </script>
 
-
-  <div class="navbar">
+<div class="navbar">
     <a href="../index.html" class="back-link">
       <i class="fa-solid fa-angle-left"></i> Back
     </a>
@@ -95,8 +94,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><a href='#' onclick="loadIframe('https://mynext1x-20f40aa38dc7.herokuapp.com/watch/543774/02.mp4')">1.A. Anatomy Day 1 Part 1</a></td></tr>
-          <tr><td><a href='#' onclick="loadIframe('https://mynext4x-ac792448aabf.herokuapp.com/watch/543786/4.mp4')">1.B. Anatomy Day 1 Part 2</a></td></tr>
+          <tr>
+            <td>
+              <a href="#" onclick="loadIframe('https://mynext1x-20f40aa38dc7.herokuapp.com/watch/543774/02%3A+Indian+Legal+System+-+Part+1?hash=AgADrw')">
+                1.A. Anatomy Day 1 Part 1 atf.mp4
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#" onclick="loadIframe('https://mynext4x-ac792448aabf.herokuapp.com/watch/543786/4.+Clinical+Embryology+of+External+and+Middle+Ear+yw.mp4?hash=AgADxh')">
+                1.B. Anatomy Day 1 Part 2 atf.mp4
+              </a>
+            </td>
+          </tr>
+         <tr><td><a href='#' onclick="loadIframe('https://nextpulse-25b1b64cdf4e.herokuapp.com/watch/550093/video_2024-10-28_06-58-40_7435720766093525036.mp4?hash=AgADF0')">278 - Disorders of Glands</a></td></tr>
+<tr><td><a href='#' onclick="loadIframe('https://nextpulse-25b1b64cdf4e.herokuapp.com/watch/550094/video_2024-10-28_06-59-32_7435721010906660864.mp4?hash=AgADLE')">279 - Hair and Nail Disorders</a></td></tr>
+<tr><td><a href='#' onclick="loadIframe('https://nextpulse-25b1b64cdf4e.herokuapp.com/watch/550095/video_2024-10-28_07-00-05_7435721281489600520.mp4?hash=AgADPE')">280 - Miscellaneous Topics</a></td></tr>
+ 
         </tbody>
       </table>
     </div>
@@ -107,21 +122,25 @@
     <iframe id="external-frame"></iframe>
   </div>
 
+  <script src="botusername.js"></script>
   <script>
     function loadIframe(url) {
       document.getElementById('iframe-container').style.display = 'block';
       document.getElementById('external-frame').src = url;
     }
+
     function closeIframe() {
       document.getElementById('iframe-container').style.display = 'none';
       document.getElementById('external-frame').src = '';
     }
+
     function tableSearch() {
       var input, filter, table, tr, td, i, txtValue;
       input = document.getElementById('input-box');
       filter = input.value.toUpperCase();
       table = document.getElementById('myTable');
       tr = table.getElementsByTagName('tr');
+
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName('td')[0];
         if (td) {
