@@ -67,10 +67,13 @@
     <iframe id="external-frame"></iframe>
   </div>
 
-  <script src="fetchLectures.js"></script> <!-- 🔹 Added dynamic lecture fetching script -->
+  <script src="fetchLectures.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      loadLectures("myTable", 1, 5); // Change range as needed
+      // Customize start and end ID for each page
+      const startId = 1;
+      const endId = 5; 
+      loadLectures("myTable", startId, endId);
     });
 
     function loadIframe(url) {
