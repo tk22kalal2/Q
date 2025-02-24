@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const lecturesFile = "lectures.json";
-const newLecturesFile = "newLectures.txt";
+const lecturesFile = "Plugins/lectures.json";
+const newLecturesFile = "Plugins/newLectures.txt";
 
 // Function to update lectures.json
 function updateLectures() {
