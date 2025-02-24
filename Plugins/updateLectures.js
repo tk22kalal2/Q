@@ -1,34 +1,48 @@
-async function updateLectures() {
-    try {
-        // Fetch existing lectures.json
-        const response = await fetch("../Plugins/lectures.json?nocache=" + new Date().getTime());
-        let data = await response.json();
-        let existingLectures = data.lectures.map(lecture => lecture.html.trim()); // Store existing lectures for comparison
+const fs = require('fs');
 
-        // Fetch new lectures from newLectures.txt
-        const newLecturesResponse = await fetch("../Plugins/newLectures.txt?nocache=" + new Date().getTime());
-        const newLecturesText = await newLecturesResponse.text();
-        const newLecturesArray = newLecturesText.trim().split("\n\n").map(item => item.trim()); // Split and clean
+const lecturesFile = "./Plugins/lectures.json";
+const newLecturesFile = "./Plugins/newLectures.txt";
+
+// Function to update lectures.json
+function updateLectures() {
+    try {
+        // Read existing lectures.json
+        let lecturesData = fs.existsSync(lecturesFile) ? JSON.parse(fs.readFileSync(lecturesFile, "utf8")) : { lectures: [] };
+
+        // Read newLectures.txt
+        let newLecturesText = fs.readFileSync(newLecturesFile, "utf8").trim();
+        let newLecturesArray = newLecturesText.split("\n\n").map(item => item.trim());
 
         // Get last used ID
-        let lastId = data.lectures.length > 0 ? data.lectures[data.lectures.length - 1].id : 0;
+        let lastId = lecturesData.lectures.length > 0 ? lecturesData.lectures[lecturesData.lectures.length - 1].id : 0;
+        
+        // Convert existing lectures into a Set to prevent duplicates
+        let existingLecturesSet = new Set(lecturesData.lectures.map(lecture => lecture.html.trim()));
 
-        // Check for new lectures that are NOT already in lectures.json
+        // Add only new lectures
+        let newEntries = [];
         newLecturesArray.forEach(lectureHTML => {
-            if (!existingLectures.includes(lectureHTML)) { // Only add new ones
+            if (!existingLecturesSet.has(lectureHTML)) {
                 lastId++;
-                data.lectures.push({ id: lastId, html: lectureHTML });
+                let newEntry = { id: lastId, html: lectureHTML };
+                lecturesData.lectures.push(newEntry);
+                newEntries.push(newEntry);
             }
         });
 
-        // Log updated JSON (Replace this with backend API call to save JSON)
-        console.log("Updated Lectures JSON:", JSON.stringify(data, null, 2));
+        if (newEntries.length === 0) {
+            console.log("✅ No new lectures to update.");
+            return;
+        }
 
-        alert("Lectures updated successfully!");
+        // Write updated JSON back to lectures.json
+        fs.writeFileSync(lecturesFile, JSON.stringify(lecturesData, null, 2));
+        console.log(`✅ Added ${newEntries.length} new lectures!`);
     } catch (error) {
-        console.error("Error updating lectures:", error);
+        console.error("❌ Error updating lectures:", error);
+        process.exit(1);
     }
 }
 
-// Run the function on page load
-document.addEventListener("DOMContentLoaded", updateLectures);
+// Run the update function
+updateLectures();
