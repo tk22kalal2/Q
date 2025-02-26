@@ -1364,3 +1364,213 @@
 
 <tr><td><a href='#' onclick="loadIframe('https://stream9.nextpulse.workers.dev/watch/2404/102_watermarked.mp4?hash=AgADNR')">109 Ovarian cancer. Part 2</a></td></tr>
 
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2406/1_watermarked.mp4?hash=AgADfB')">1. Concept of Health, Healthcare and Disease</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2407/2_watermarked.mp4?hash=AgADfR')">2. Concept of Disease causation and Control</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2408/3_watermarked.mp4?hash=AgADfh')">3. Health and Disability indicators</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream21.nextpulse.workers.dev/watch/2409/4_watermarked.mp4?hash=AgADfx')">4. Health and Development indices</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2410/8_watermarked.mp4?hash=AgADgx')">5. Basics in Epidemiology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream.nextpulse.workers.dev/watch/2411/9_watermarked.mp4?hash=AgADhB')">6. Descriptive Epidemiology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream23.nextpulse.workers.dev/watch/2412/10_watermarked.mp4?hash=AgADhR')">7. Analytical Epidemiology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2413/11_watermarked.mp4?hash=AgADhh')">8. Advanced analytical study designs</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream8.nextpulse.workers.dev/watch/2414/12_watermarked.mp4?hash=AgADhx')">9. Experimental Epidemiology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream6.nextpulse.workers.dev/watch/2415/13_watermarked.mp4?hash=AgADiB')">10. Evidence based medicine</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream15.nextpulse.workers.dev/watch/2416/14_watermarked.mp4?hash=AgADiR')">11. Bias and Causality numerical problems</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2417/15_watermarked.mp4?hash=AgADih')">12. Screening of disease concepts</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream17.nextpulse.workers.dev/watch/2418/16_watermarked.mp4?hash=AgADjB')">13. Determinants in screening of disease</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream21.nextpulse.workers.dev/watch/2419/17_watermarked.mp4?hash=AgADjR')">14. Advanced concepts in screening of disease</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream6.nextpulse.workers.dev/watch/2420/18_watermarked.mp4?hash=AgADjh')">15. Introduction to data in Biostatistics</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream16.nextpulse.workers.dev/watch/2421/19_watermarked.mp4?hash=AgADjx')">16. Measures of Central tendency and Variation</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream12.nextpulse.workers.dev/watch/2422/20_watermarked.mp4?hash=AgADkB')">17. Normal distribution curve</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream15.nextpulse.workers.dev/watch/2423/21_watermarked.mp4?hash=AgADkR')">18. Concept of Probability value</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2424/22_watermarked.mp4?hash=AgADkh')">19. Tests of significance</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream19.nextpulse.workers.dev/watch/2425/23_watermarked.mp4?hash=AgADlB')">20. Correlation, Regression and Skew</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream22.nextpulse.workers.dev/watch/2426/24_watermarked.mp4?hash=AgADlR')">21. Sampling methods and calculation</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2427/25_watermarked.mp4?hash=AgADlh')">22. Probability and Tiles</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2428/26_watermarked.mp4?hash=AgADlx')">23. Graphs</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream19.nextpulse.workers.dev/watch/2429/27_watermarked.mp4?hash=AgADmB')">24. Biostats review and QA round</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream20.nextpulse.workers.dev/watch/2430/5_watermarked.mp4?hash=AgADgB')">25. Infectious disease Epidemiology: Part 1</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream11.nextpulse.workers.dev/watch/2431/6_watermarked.mp4?hash=AgADgR')">26. Infectious disease Epidemiology: Part 2</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2432/7_watermarked.mp4?hash=AgADgh')">27. Infectious disease Epidemiology: Part 3</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream9.nextpulse.workers.dev/watch/2433/69_watermarked.mp4?hash=AgADyx')">28. Smallpox and Chickenpox</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream16.nextpulse.workers.dev/watch/2434/70_watermarked.mp4?hash=AgADzR')">29. Measles, Mumps and Rubella</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream10.nextpulse.workers.dev/watch/2435/71_watermarked.mp4?hash=AgADzh')">30. Flu, Diphtheria and Pertussis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2436/72_watermarked.mp4?hash=AgADzx')">31. Cholera and Diarrhoeal Disease Control Program</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream11.nextpulse.workers.dev/watch/2437/73_watermarked.mp4?hash=AgAD0B')">32. Typhoid and Amoebiasis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream17.nextpulse.workers.dev/watch/2438/74_watermarked.mp4?hash=AgAD0R')">33. Hepatitis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream.nextpulse.workers.dev/watch/2439/75_watermarked.mp4?hash=AgAD0h')">34. Soil transmitted Helminthic infections</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2440/76_watermarked.mp4?hash=AgAD0x')">35. Plague, Yellow fever and KFD</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream9.nextpulse.workers.dev/watch/2441/77_watermarked.mp4?hash=AgAD1R')">36. Zoonoses and Rabies</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2442/78_watermarked.mp4?hash=AgAD1h')">37. Tetanus</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2443/79_watermarked.mp4?hash=AgAD1x')">38. Rickettsia</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream.nextpulse.workers.dev/watch/2444/80_watermarked.mp4?hash=AgAD2B')">39. Ebola, Zika and NIPAH</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream14.nextpulse.workers.dev/watch/2445/81_watermarked.mp4?hash=AgAD2R')">40. Non-Communicable diseases</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream19.nextpulse.workers.dev/watch/2446/28_watermarked.mp4?hash=AgADmR')">41. Health care system in India</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2447/29_watermarked.mp4?hash=AgADmh')">42. TB: Epidemiology and Diagnosis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2448/30_watermarked.mp4?hash=AgADmx')">43. NTEP. Diagnosis and Treatment</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2449/31_watermarked.mp4?hash=AgADnB')">44. NTEP. New strategies, Organisation and Evaluation</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream23.nextpulse.workers.dev/watch/2450/32_watermarked.mp4?hash=AgADnR')">45. NACP. Targets, Diagnosis and Management</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream5.nextpulse.workers.dev/watch/2451/33_watermarked.mp4?hash=AgADnh')">46. NACP. Strategies, Organisation and Indicators</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream5.nextpulse.workers.dev/watch/2452/34_watermarked.mp4?hash=AgADnx')">47. Malaria Epidemiology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream22.nextpulse.workers.dev/watch/2453/35_watermarked.mp4?hash=AgADoh')">48. NVBDCP. Diagnosis and Treatment</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream25.nextpulse.workers.dev/watch/2454/36_watermarked.mp4?hash=AgADox')">49. NVBDCP. Strategies</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream8.nextpulse.workers.dev/watch/2455/37_watermarked.mp4?hash=AgADpB')">50. NVBDCP. Indicators and Recent updates</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2456/38_watermarked.mp4?hash=AgADpR')">51. Japanese Encephalitis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream16.nextpulse.workers.dev/watch/2457/39_watermarked.mp4?hash=AgADph')">52. Dengue</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream2.nextpulse.workers.dev/watch/2458/40_watermarked.mp4?hash=AgADpx')">53. Lymphatic Filariasis</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2459/41_watermarked.mp4?hash=AgADqB')">54. Kala-Azar</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream20.nextpulse.workers.dev/watch/2460/42_watermarked.mp4?hash=AgADqR')">55. National Leprosy Eradication Program</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream19.nextpulse.workers.dev/watch/2461/43_watermarked.mp4?hash=AgADqh')">56. National Polio Surveillance Program</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream5.nextpulse.workers.dev/watch/2462/44_watermarked.mp4?hash=AgADqx')">57. NIDDCP, IDSP and ICDS</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream12.nextpulse.workers.dev/watch/2463/45_watermarked.mp4?hash=AgADrB')">58. ESI and Factories act</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream24.nextpulse.workers.dev/watch/2464/46_watermarked.mp4?hash=AgADrR')">59. NMHP and National health policy 2017</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream5.nextpulse.workers.dev/watch/2465/47_watermarked.mp4?hash=AgADrh')">60. Recent advances In Community medicine - 2022</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream25.nextpulse.workers.dev/watch/2466/48_watermarked.mp4?hash=AgADrx')">61. Demographic cycle</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream.nextpulse.workers.dev/watch/2467/49_watermarked.mp4?hash=AgADsB')">62. Demographic trends</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream8.nextpulse.workers.dev/watch/2468/50_watermarked.mp4?hash=AgADsR')">63. Fertility rates</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream4.nextpulse.workers.dev/watch/2469/51_watermarked.mp4?hash=AgADsh')">64. Survey techniques</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2470/52_watermarked.mp4?hash=AgADsx')">65. Death certificates and Causes of death: 2019 report</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream8.nextpulse.workers.dev/watch/2471/53_watermarked.mp4?hash=AgADtB')">66. Family planning and Contraception: Part 1</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream20.nextpulse.workers.dev/watch/2472/54_watermarked.mp4?hash=AgADtR')">67. Family planning and Contraception: Part 2</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream10.nextpulse.workers.dev/watch/2473/55_watermarked.mp4?hash=AgADth')">68. National Family Planning Program</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream6.nextpulse.workers.dev/watch/2474/56_watermarked.mp4?hash=AgADuh')">69.Indicators of MCH care</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream9.nextpulse.workers.dev/watch/2475/57_watermarked.mp4?hash=AgADux')">70.Preventive Obstetrics</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream22.nextpulse.workers.dev/watch/2476/58_watermarked.mp4?hash=AgADvB')">71.Preventive Paediatrics: Early care</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream15.nextpulse.workers.dev/watch/2477/59_watermarked.mp4?hash=AgADvR')">72.Preventive Paediatrics: Growth and Development</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream24.nextpulse.workers.dev/watch/2478/60_watermarked.mp4?hash=AgADvh')">73.Social Paediatrics</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream23.nextpulse.workers.dev/watch/2479/61_watermarked.mp4?hash=AgADvx')">74.RMNCH +A: Part 1</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream7.nextpulse.workers.dev/watch/2480/62_watermarked.mp4?hash=AgADwB')">75.RMNCH +A: Part 2</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream22.nextpulse.workers.dev/watch/2481/63_watermarked.mp4?hash=AgADwR')">76.Immunization basics</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream.nextpulse.workers.dev/watch/2482/64_watermarked.mp4?hash=AgADwh')">77.National Immunization Schedule</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2483/65_watermarked.mp4?hash=AgADwx')">78.Immunization FAQs</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2484/66_watermarked.mp4?hash=AgADxB')">79.Cold chain</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream17.nextpulse.workers.dev/watch/2485/67_watermarked.mp4?hash=AgADxR')">80.Vaccine strains, GVAP and MCP card</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2486/68_watermarked.mp4?hash=AgADyh')">81.Vaccine in Special situations, Waste management and AEFI</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream12.nextpulse.workers.dev/watch/2487/82_watermarked.mp4?hash=AgAD2h')">82.Nutrition: Concepts and Macronutrients</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream14.nextpulse.workers.dev/watch/2488/83_watermarked.mp4?hash=AgAD2x')">83.Nutrition: Micronutrients and RDA 2020</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2489/84_watermarked.mp4?hash=AgAD3B')">84.Nutrition: Food products, Adulterants and Standards</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream22.nextpulse.workers.dev/watch/2490/96_watermarked.mp4?hash=AgAD8x')">85.Social medicine and Health</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream11.nextpulse.workers.dev/watch/2491/83_watermarked.mp4?hash=AgAD2x')">83.Nutrition: Micronutrients and RDA 2020</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream16.nextpulse.workers.dev/watch/2492/84_watermarked.mp4?hash=AgAD3B')">84.Nutrition: Food products, Adulterants and Standards</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream18.nextpulse.workers.dev/watch/2493/96_watermarked.mp4?hash=AgAD8x')">85.Social medicine and Health</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream11.nextpulse.workers.dev/watch/2494/85_watermarked.mp4?hash=AgAD3R')">86.Air and Meteorology</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2495/86_watermarked.mp4?hash=AgAD3h')">87.Water: Part 1</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2496/87_watermarked.mp4?hash=AgAD3x')">88.Water: Part 2</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream6.nextpulse.workers.dev/watch/2497/88_watermarked.mp4?hash=AgAD5h')">89.Housing, Ventilation, Light, Sound and Radiation</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream3.nextpulse.workers.dev/watch/2498/89_watermarked.mp4?hash=AgAD6B')">90.Waste and Sewage disposal</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2499/90_watermarked.mp4?hash=AgAD6x')">91.Entomology: Mosquitoes</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream1.nextpulse.workers.dev/watch/2500/91_watermarked.mp4?hash=AgAD7R')">92.Entomology: Lice, Ticks, Mites and Sandfly</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream19.nextpulse.workers.dev/watch/2501/92_watermarked.mp4?hash=AgAD7x')">93.Mosquito control measures and Insecticides</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2502/94_watermarked.mp4?hash=AgAD8R')">94.Biomedical waste management</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream17.nextpulse.workers.dev/watch/2503/95_watermarked.mp4?hash=AgAD8h')">95.DISASTER MANAGEMENT</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream8.nextpulse.workers.dev/watch/2504/93_watermarked.mp4?hash=AgAD8B')">96.OCCUPATIONAL HEALTH</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream15.nextpulse.workers.dev/watch/2505/97_watermarked.mp4?hash=AgAD9B')">97.Health Communication and Education</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream4.nextpulse.workers.dev/watch/2506/98_watermarked.mp4?hash=AgAD9R')">98.Health Planning and Management</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream13.nextpulse.workers.dev/watch/2507/99_watermarked.mp4?hash=AgAD9h')">99.International health</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream24.nextpulse.workers.dev/watch/2508/100_watermarked.mp4?hash=AgAD9x')">100.History and Evolution of medicine</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream20.nextpulse.workers.dev/watch/2509/101_watermarked.mp4?hash=AgAD-B')">101.Preventive Geriatrics</a></td></tr>
+
+<tr><td><a href='#' onclick="loadIframe('https://stream20.nextpulse.workers.dev/watch/2510/102_watermarked.mp4?hash=AgAD-R')">102.Genetics and Health</a></td></tr>
+
